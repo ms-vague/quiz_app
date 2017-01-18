@@ -4,7 +4,7 @@ var questions = [
 	options: ['Toronto, Canada', 'New Orleans, LA', 'New York, New York', 'Athens, Greece'],
 	answer: 'Toronto, Canada',
 	correct: "Correctomundo! Orphan Black is filmed in Toronto, Canada. (Hi, Drake)",
-    wrongAnswer: 'Bzz! What would Helena think?'
+    wrong: 'Bzz! What would Helena think?'
   },
   
   { 
@@ -14,7 +14,6 @@ var questions = [
 	correct: "Great Scott, I've created life itself.",
 	wrong:	"It's okay, there's always tomorrow."
   },
-
   {	
 	question: 'What does Rachel love?',
 	options: ['Power', 'Her Mom and Dad', 'Sarah', 'Windows'],
@@ -22,7 +21,13 @@ var questions = [
 	correct: "Oh wow, do you belong to The Clone Club?",
 	wrong: "I'm so bored."
   },
-
+    {	
+	question: "What's the name of Sarah's step-brother?",
+	options: ['Roger', 'Johnny', 'Felix', 'Mickey'],
+	answer: 'Felix',
+	correct: "Holy shite, that worked!",
+	wrong: "Woops."
+  },
   {
 	question: 'What does Cosima love?',
 	options: ['Science', 'Her sisters', 'French Blonde Scientists', 'Pot', 'All of the Above'],
@@ -52,6 +57,19 @@ var questions = [
 	correct: 'Nice job, eh?',
 	wrong: "I'm the smallest kid in my class."
   	},
-
+  {
+  	question: "Sarah, Cal, and Kira are collectively referred to as?",
+	options: ['The Fugitive Family', 'Hacker Fam', 'La Famila', 'Oi! Fam', 'Lumberfamily'],
+	answer: 'Lumberfamily',
+	correct: 'Nice job, meathead.',
+	wrong: "Right, so you don't know, either?"
+  	},
+  {
+  	question: "Sarah, who is Beth Childs?",
+	options: ["Who isn't Beth Childs, eh?", "Sarah's entry point into the clone conspiracy", "Paul's monitor", "Not a clone, that's for sure"],
+	answer: "Sarah's entry point into the clone conspiracy",
+	correct: "You're damn right.",
+	wrong: "Nope."
+  	}
 ];
 
