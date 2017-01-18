@@ -49,7 +49,7 @@ var questions = [
   	question: "What's Sarah's term of endearment for her daughter Kira?",
 	options: ['Lizard', 'Mini Clone', 'Loonie', 'Monkey'],
 	answer: 'Loonie',
-	correct: 'Not bad, eh?',
+	correct: 'Nice job, eh?',
 	wrong: "I'm the smallest kid in my class."
   	},
 
