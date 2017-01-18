@@ -3,8 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title> Orphan Black Quiz App</title>
-
+	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -19,13 +20,17 @@
 		</p>		
 	
 	<div class='begin'>
-		<h2>Ever wonder how much Orphan Black knowledge you have crammed inside your brain?</h2>
+		<h2>Ever wonder how much Orphan Black trivia you have stored inside your brain?</h2>
 		<h3>Take this quiz and find out.</h3>
 		<h4>Follow the Leda.</h4>
-		<button class='start'></button>
+	</div>
+
+	<div class='button_start'>
+		<INPUT TYPE="submit" VALUE="Start">
+		</FORM>
 	</div>
 		
-	<nav>
+	<nav> <!-- form input element, totally interactive -->
 		<header class='question'>
 			<p></p>
 			<span><p>Question</p></span>
@@ -41,9 +46,12 @@
 	<article class='answers'>
 		<p class='correct'></p>
 		<p class='incorrect'></p>
-		<button class='again'></button>
 	</article>
 	
+	<div class='button_again'>
+		<INPUT TYPE="submit" VALUE="Play Again">
+		</FORM>
+	</div>
 
 	<footer class='image_container'>
 		<img class="progress_bar" src="" alt="">
