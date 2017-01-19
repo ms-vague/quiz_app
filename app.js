@@ -1,3 +1,5 @@
+var score = [];
+
 var questions = [
   {	
 	question: 'Where is Orphan Black filmed?',
@@ -6,7 +8,6 @@ var questions = [
 	correct: "Correctomundo! Orphan Black is filmed in Toronto, Canada. (Hi, Drake)",
     wrong: 'Bzz! What would Helena think?'
   },
-  
   { 
 	question: 'What is the name of the cloning program?',
     options: ['Project Project', 'Project X', 'Project Leda', 'Project so Many of Us'],
@@ -72,4 +73,7 @@ var questions = [
 	wrong: "Nope."
   	}
 ];
+
+
+
 
