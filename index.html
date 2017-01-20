@@ -6,7 +6,7 @@
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" type= "text/css" href="main.css">
 </head>
 <body>
 	
@@ -27,36 +27,22 @@
 
 	<div class='button_start'>
 		<FORM>
-		<INPUT TYPE="submit" VALUE="Start">
+		<INPUT type="submit" value="Start">
 		</FORM>
+	</div>	
+	
+	<div class='question'>
+		<h2>Question</h2>
 	</div>
-		
-	<nav> <!-- form input element, totally interactive -->
-		<header class='question'>
-			<p></p>
-			<span><h2>Question</h2></span>
-		</header>
 
-		<div class="first_answer">
-			<label class="control control--checkbox">
-			<input type="checkbox" /></label>
-		</div>	
-
-		<div class="second_answer">
-			<label class="control control--checkbox">
-			<input type="checkbox" /></label>
-		</div>
-
-		<div class="third_answer">
-			<label class="control control--checkbox">
-			<input type="checkbox" /></label>
-		</div>
-
-		<div class="forth_answer">
-			<label class="control control--checkbox">
-			<input type="checkbox" /></label>
-		</div>
-	</nav>	
+	<div class='answers'>
+		<form>
+  			<input type="radio" name="options" checked><br>
+  			<input type="radio" name="options"><br>
+  			<input type="radio" name="options"><br>
+  			<input type="radio" name="options">
+		</form>
+	</div>
 
 	<article class='right_wrong'>
 		<p class='correct'></p>
@@ -65,7 +51,7 @@
 	
 	<div class='button_again'>
 		<FORM>
-		<INPUT TYPE="submit" VALUE="Play Again">
+		<INPUT type="submit" value="Play Again">
 		</FORM>
 	</div>
 
@@ -75,7 +61,7 @@
 
 	</main>
 
-	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-	<script src="js/app.js"></script>
+	<script src="https://code.jquery.com/jquery.min.js"></script>
+	<script src="app.js"></script>
 </body>
 </html>
