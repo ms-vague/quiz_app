@@ -1,8 +1,15 @@
 $(document).ready(function(){
-	$('.button_start').on('click', function(e){
-		e.preventDefault();
-		$('.quiz_name, .introduction, .begin, .right_wrong, .button_again').hide();
-		$('.question, .answers').show();
+	$('.quiz_name').show();
+	$('.begin').show();
+	$('.button_start').show();
+	$('.question').hide();
+	$('.answers').hide();
+	$('.right_wrong').hide();
+	$('.button_again').hide();
+	$('.image_container').hide();
+	$('.button_start').on('click', function(event){
+		event.preventDefault();
+		$('.quiz_name, .introduction, .begin, .right_wrong, .button_again, .image_container').hide();
 	});
 });
 
@@ -38,7 +45,7 @@ var questions = [
   {
 	question: 'What does Cosima love?',
 	options: ['Science', 'Her sisters', 'French Blonde Scientists', 'Pot', 'All of the Above'],
-	answer: 'All of the Above.'
+	answer: 'All of the Above.',
 	correct: "Right on!",
 	wrong: 'Err, at least you tried?'
 
@@ -60,7 +67,7 @@ var questions = [
   {
   	question: "What's Sarah's term of endearment for her daughter Kira?",
 	options: ['Lizard', 'Mini Clone', 'Loonie', 'Monkey'],
-	answer: 'Monkey',
+	answer: 'Loonie',
 	correct: 'Nice job, eh?',
 	wrong: "I'm the smallest kid in my class."
   	},
