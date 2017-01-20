@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$('.button_start').on('click', function(event) {
+	$('.button_start').on('click', function(event){
 		event.preventDefault();
 		$('.quiz_name, .introduction, .begin, .button_start, .right_wrong, .button_again, .image_container').hide();
 		$('.question, .answers').show();
