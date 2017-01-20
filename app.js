@@ -1,8 +1,15 @@
 $(document).ready(function(){
+	$('.quiz_name').show();
+	$('.begin').show();
+	$('.button_start').show();
+	$('.question').hide();
+	$('.answers').hide();
+	$('.right_wrong').hide();
+	$('.button_again').hide();
+	$('.image_container').hide();
 	$('.button_start').on('click', function(event){
 		event.preventDefault();
-		$('.quiz_name, .introduction, .begin, .button_start, .right_wrong, .button_again, .image_container').hide();
-		$('.question, .answers').show();
+		$('.quiz_name, .introduction, .begin, .right_wrong, .button_again, .image_container').hide();
 	});
 });
 
@@ -38,7 +45,7 @@ var questions = [
   {
 	question: 'What does Cosima love?',
 	options: ['Science', 'Her sisters', 'French Blonde Scientists', 'Pot', 'All of the Above'],
-	answer: 'All of the Above.'
+	answer: 'All of the Above.',
 	correct: "Right on!",
 	wrong: 'Err, at least you tried?'
 
