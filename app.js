@@ -16,10 +16,18 @@ $(document).ready(function(){
 	$('.begin').hide(); 
 	$('.right_wrong').hide(); 
 	$('.button_again').hide(); 
-	$('.image_container').hide();
+	$('.image_container').show();
 	$('.button_start').hide();
 	});
-});
+
+$(document).ready(function() {
+	$('.answers').click(function() {
+		if($('.one, .two, .three, .four').is(':clicked')) {
+			alert('you clicked it'); }
+			});
+		});
+	});
+
 
 var questions = [
   {	
