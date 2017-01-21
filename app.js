@@ -20,12 +20,8 @@ $(document).ready(function(){
 	$('.button_start').hide();
 	});
 
-$(document).ready(function() {
-	$('.answers').click(function() {
-		if($('.one, .two, .three, .four').is(':clicked')) {
-			alert('you clicked it'); }
-			});
-		});
+	
+	
 	});
 
 
