@@ -19,10 +19,13 @@ $(document).ready(function(){
 	$('.image_container').show();
 	$('.button_start').hide();
 	});
+});
 
-	
-	
-	});
+/* 
+*	implement some JS here for the questions and answers 
+*	followed by jQuery event stuff?
+*/
+
 
 
 var questions = [
