@@ -66,14 +66,14 @@ var totalQuestions = questions.length;
 var totalCorrectAnswers = 0;
 
 function startGame(){
-	$('.question').text(questions[currentQuestionNumber].question);
+	$('.question').text(questions[currentQuestion].question);
 	$('.answers').empty();
 
-	var numberOfChoices = questions[currentQuestionNumber].options.length;
+	var numberOfChoices = questions[currentQuestion].options.length;
 
 	for(var i = 0; i < numberOfChoices; i++){
 		var buildChoiceHTML = '<input class='answer' type='radio' name='option' value="' + i + '">' +
-		questions[currentQuestionNumber].questionChoices[i] + "<br/>";
+		questions[currentQuestion].options[i] + "<br/>";
 		$('.answers').append(buildChoiceHTML);
 	}
 
