@@ -9,9 +9,24 @@ $(document).ready(function(){
 	$('.image_container').hide();
 	$('.button_start').on('click', function(event){
 		event.preventDefault();
-		$('.quiz_name, .introduction, .begin, .right_wrong, .button_again, .image_container').hide();
+	$('.question').show();
+	$('.answers').show();
+	$('.quiz_name').hide(); 
+	$('.introduction').hide(); 
+	$('.begin').hide(); 
+	$('.right_wrong').hide(); 
+	$('.button_again').hide(); 
+	$('.image_container').show();
+	$('.button_start').hide();
 	});
 });
+
+/* 
+*	implement some JS here for the questions and answers 
+*	followed by jQuery event stuff?
+*/
+
+
 
 var questions = [
   {	
