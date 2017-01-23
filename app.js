@@ -68,20 +68,29 @@ var numberOfRightAnswers = 0;
 // functions 
 
 function displayQuestion(){
+	console.log('hello');
+	// update question text //
 	$('.question').text(questions[currentQuestion].question);
+	// delete pre-existing choices //
 	$('.choices').empty();
 
+	// total number of choices for current question //
 var totalChoices = questions[currentQuestion].options.length;
-
-for (var i = 0; i < totalChoices.length; i++) {
+	
+	// loop thru all choices and append them to .choices div //
+for (var i = 0; i < totalChoices; i++) {
+	// loop choices and append them to .choices div //
 	var buildOptionsHTML = '<input class="answer" type="radio"  name="option" value="' + i + '">' + questions[currentQuestion].options[i] + ' <br/> ';
+	// append the row to choices container in HTML //
 	$('.choices').append(buildOptionsHTML);
 }
-
+	
+	// number of the current question //
 $('.count').text('Question ' + (currentQuestion + 1) + ' of ' + numberOfQuestions);
 $('.score').text('You have ' + (numberOfRightAnswers) + ' of ' + numberOfQuestions + ' correct.');
 
 }
+	// begin jQuery //
 
 $(document).ready(function(){
 	$('.begin').show();
@@ -100,17 +109,19 @@ $(document).ready(function(){
 	// show questions
 	$('.quiz').on('click', '.answer', function(){
 
-		var userAnswer = $('input[class=answer]:checked').val();
+			// user input //
+		var userAnswer = $('input[class="answer"]:checked').val();
 
+			// get correct answer from questions array //
 		var rightAnswer = questions[currentQuestion].choice;
 		console.log('userAnswer = ', userAnswer);
 		console.log('rightAnswer = ', rightAnswer);
-		if(userAnswer === rightAnswer) {
+		if (userAnswer === rightAnswer) {
 			numberOfRightAnswers++;
 			console.log(numberOfRightAnswers);
 		}
 
-		if((currentQuestion + 1) === numberOfQuestions) {
+		if ((currentQuestion + 1) === numberOfQuestions) {
 			$('.results').show();
 			$('.begin').hide();
 			$('.quiz').hide();
@@ -121,7 +132,7 @@ $(document).ready(function(){
 			displayQuestion();
 		}
 	});
-
+		// load restart section //
 	$('.results').on('click', '.again', function(){
 		$('.begin').show();
 		$('.quiz').hide();
