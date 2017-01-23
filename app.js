@@ -1,106 +1,183 @@
-$(document).ready(function(){
-	$('.quiz_name').show();
-	$('.begin').show();
-	$('.button_start').show();
-	$('.question').hide();
-	$('.answers').hide();
-	$('.right_wrong').hide();
-	$('.button_again').hide();
-	$('.image_container').hide();
-	$('.button_start').on('click', function(event){
-		event.preventDefault();
-	$('.question').show();
-	$('.answers').show();
-	$('.quiz_name').hide(); 
-	$('.introduction').hide(); 
-	$('.begin').hide(); 
-	$('.right_wrong').hide(); 
-	$('.button_again').hide(); 
-	$('.image_container').show();
-	$('.button_start').hide();
-	});
-});
-
-/* 
-*	implement some JS here for the questions and answers 
-*	followed by jQuery event stuff?
-*/
-
-
-
 var questions = [
   {	
 	question: 'Where is Orphan Black filmed?',
 	options: ['Toronto, Canada', 'New Orleans, LA', 'New York, New York', 'Athens, Greece'],
-	answer: 'Toronto, Canada',
-	correct: "Correctomundo! Orphan Black is filmed in Toronto, Canada. (Hi, Drake)",
-    wrong: 'Bzz! What would Helena think?'
+	choice: 0,
+	correctMessage: "Correctomundo! Orphan Black is filmed in Toronto, Canada. (Hi, Drake)"
   },
   { 
 	question: 'What is the name of the cloning program?',
     options: ['Project Project', 'Project X', 'Project Leda', 'Project so Many of Us'],
-    answer: 'Project Leda',
-	correct: "Great Scott, I've created life itself.",
-	wrong:	"It's okay, there's always tomorrow."
+    choice: 2,
+	correctMessage: "Great Scott, I've created life itself."
   },
   {	
 	question: 'What does Rachel love?',
 	options: ['Power', 'Her Mom and Dad', 'Sarah', 'Windows'],
-	answer: 'Windows',
-	correct: "Oh wow, do you belong to The Clone Club?",
-	wrong: "I'm so bored."
+	choice: 3,
+	correctMessage: "Oh wow, do you belong to The Clone Club?"
   },
     {	
 	question: "What's the name of Sarah's step-brother?",
 	options: ['Roger', 'Johnny', 'Felix', 'Mickey'],
-	answer: 'Felix',
-	correct: "Holy shite, that worked!",
-	wrong: "Woops."
+	choice: 2,
+	correctMessage: "Holy shite, that worked!"
   },
   {
 	question: 'What does Cosima love?',
-	options: ['Science', 'Her sisters', 'French Blonde Scientists', 'Pot', 'All of the Above'],
-	answer: 'All of the Above.',
-	correct: "Right on!",
-	wrong: 'Err, at least you tried?'
-
+	options: ['Her sisters', 'French Blonde Scientists', 'Pot', 'All of the Above'],
+	choice: 3,
+	correctMessage: "Right on!"
   },
   {
 	question: 'We make a family, yes?',
 	options: ['Put a ring on it', "I've already got a family", 'Er, no?', 'Aah!'],
-	answer: "I've already got a family.",
-	correct: 'This, I like.',
-	wrong: 'You make me cry, sestra.'
+	choice: 1,
+	correctMessage: 'This, I like.'
 	},
   {
   	question: "You know what's a very French thing to do?",
 	options: ['Sing La Vie En Rose', 'Smoke a nice little cigarette', 'Watch Amelie', 'Monitor clones'],
-	answer: 'Smoke a nice little cigarette',
-	correct: 'Oui, brava!',
-	wrong: "No. I have to go. It-it's okay. Bye."
+	choice: 1,
+	correctMessage: 'Oui, brava!'
   	},
   {
   	question: "What's Sarah's term of endearment for her daughter Kira?",
 	options: ['Lizard', 'Mini Clone', 'Loonie', 'Monkey'],
-	answer: 'Loonie',
-	correct: 'Nice job, eh?',
-	wrong: "I'm the smallest kid in my class."
+	choice: 3,
+	correctMessage: 'Nice job, eh?'
   	},
   {
   	question: "Sarah, Cal, and Kira are collectively referred to as?",
-	options: ['The Fugitive Family', 'Hacker Fam', 'La Famila', 'Oi! Fam', 'Lumberfamily'],
-	answer: 'Lumberfamily',
-	correct: 'Nice job, meathead.',
-	wrong: "Right, so you don't know, either?"
+	options: ['The Fugitive Family', 'Hacker Fam', 'Oi! Fam', 'Lumberfamily'],
+	choice: 3,
+	correctMessage: 'Nice job, meathead.'
   	},
   {
   	question: "Sarah, who is Beth Childs?",
 	options: ["Who isn't Beth Childs, eh?", "Sarah's entry point into the clone conspiracy", "Paul's monitor", "Not a clone, that's for sure"],
-	answer: "Sarah's entry point into the clone conspiracy",
-	correct: "You're damn right.",
-	wrong: "Nope."
+	choice: 1,
+	correctMessage: "You're damn right."
   	}
 ];
+
+var currentQuestion = 0;
+var numberOfQuestions = questions.length;
+var numberOfRightAnswers = 0;
+
+// functions 
+
+function displayQuestion(){
+	$('.question').text(questions[currentQuestion].question);
+	$('.choices').empty();
+
+var totalChoices = questions[currentQuestion].options.length;
+
+for (var i = 0; i < totalChoices.length; i++) {
+	var buildOptionsHTML = '<input class="answer" type="radio"  name="option" value="' + i + '">' + questions[currentQuestion].options[i] + ' <br/> ';
+	$('.choices').append(buildOptionsHTML);
+}
+
+$('.count').text('Question ' + (currentQuestion + 1) + ' of ' + numberOfQuestions);
+$('.score').text('You have ' + (numberOfRightAnswers) + ' of ' + numberOfQuestions + ' correct.');
+
+}
+
+$(document).ready(function(){
+	$('.begin').show();
+	$('.quiz').hide();
+	$('.results').hide();
+
+	// start quiz //
+	$('.button_start').on('click', function(){
+	$('.results').hide();
+	$('.begin').hide();
+	$('.quiz').show();
+	$('.results').empty();
+	displayQuestion();
+});
+
+	// show questions
+	$('.quiz').on('click', '.answer', function(){
+
+		var userAnswer = $('input[class=answer]:checked').val();
+
+		var rightAnswer = questions[currentQuestion].choice;
+		console.log('userAnswer = ', userAnswer);
+		console.log('rightAnswer = ', rightAnswer);
+		if(userAnswer === rightAnswer) {
+			numberOfRightAnswers++;
+			console.log(numberOfRightAnswers);
+		}
+
+		if((currentQuestion + 1) === numberOfQuestions) {
+			$('.results').show();
+			$('.begin').hide();
+			$('.quiz').hide();
+			
+		}
+		else {
+			currentQuestion++;
+			displayQuestion();
+		}
+	});
+
+	$('.results').on('click', '.again', function(){
+		$('.begin').show();
+		$('.quiz').hide();
+		$('.results').hide();
+
+		currentQuestion = 0;
+		numberOfRightAnswers = 0;
+	})
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
