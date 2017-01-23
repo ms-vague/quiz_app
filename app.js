@@ -100,7 +100,7 @@ $(document).ready(function(){
 	// show questions
 	$('.quiz').on('click', '.answer', function(){
 
-		var userAnswer = $('input[class="answer"]:checked').val();
+		var userAnswer = $('input[class=answer]:checked').val();
 
 		var rightAnswer = questions[currentQuestion].choice;
 		console.log('userAnswer = ', userAnswer);
