@@ -9,54 +9,51 @@
 	<link rel="stylesheet" type= "text/css" href="main.css">
 </head>
 <body>
-	
-	<header class='quiz_name'>
-		<h1>Orphan Black Quiz</h1>
-	</header>
+	<main>
+		<header class='quiz_name'>
+			<h1>Orphan Black Quiz</h1>
+		</header>
 
-	<div class='begin'>
-		<h2>Ever wonder how much Orphan Black trivia you have stored inside your brain?</h2>
-		<h3>Take this quiz and find out.</h3>
-		<h4>Follow the Leda.</h4>
-	</div>
+		<section class='begin'>
+			<h2>Ever wonder how much Orphan Black trivia you have stored inside your brain?</h2>
+			<h3>Take this quiz and find out.</h3>
+			<h4>Follow the Leda.</h4>
 
-	<div class='button_start'>
-		<INPUT type="submit" value="Start">
-	</div>	
-	
-	<div class='question'>
-		<h2>Question</h2>
-	</div>
+			<div class='button_start'>
+				<input type="submit" value="start">
+			</div>	
+		</section>
 
-	<div class='answers_section'>
-				<div class=answer1>
-					<label><input class='answer' type='radio' value='0' name='option'></label><br>
-				</div>
-				<div class=answer2>
-					<label><input class='answer' type='radio' value='1' name='option'></label><br>
-				</div>
-				<div class=answer3>
-					<label><input class='answer' type='radio' value='2' name='option'></label><br>
-				</div>
-				<div class=answer4>
-					<label><input class='answer' type='radio' value='3' name='option'></label><br>
-				</div>
-	</div>
+		<section class='quiz'>
+			<h3 class="question" class="text">Question?</h3>
 
-	<div class='count'>Question x of y</div>
-	<div class='score'>You have x of y correct</div>
+			<div class='answers_section'>
 
-	<footer class='image_container'>
+						<input class='answer' type='radio' value='0' name='option'> Filler
+						<br>
+						<input class='answer' type='radio' value='1' name='option'> Filler
+						<br>
+						<input class='answer' type='radio' value='2' name='option'> Filler
+						<br>
+						<input class='answer' type='radio' value='3' name='option'> Filler
+						<br>
+			</div>
+
+			<div class='count'>Question x of y</div>
+			<div class='score'>You have x of y correct</div>
+		</section>
+
+		<footer class='results'>
 		<!-- in place of image container -->
-		<p>where the progress bar will be</p>
-		<img class="progress_bar" src="" alt="">
-	</footer>
+			<p>where the progress bar will be</p>
+			<img class="progress_bar" src="" alt="">
 
-	<div class='button_again'>
-		<INPUT type="submit" value="Play Again">
-	</div>
+			<div class='again'>
+				<input type="submit" value="Play Again">
+			</div>
+		</footer>
 
-	</main>
+		</main>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
 	<script src="app.js"></script>

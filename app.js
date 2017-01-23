@@ -62,50 +62,80 @@ var questions = [
 ];
 
 var currentQuestion = 0;
-var totalQuestions = questions.length;
-var totalCorrectAnswers = 0;
+var numberOfQuestions = questions.length;
+var numberOfRightAnswers = 0;
 
-function startGame(){
-	$('.question').text(questions[currentQuestion].question);
-	$('.answers').empty();
+// functions 
 
-	var numberOfChoices = questions[currentQuestion].options.length;
+function displayQuestion(){
+	$('h2').text(questions[currentQuestion].question);
+	$('.answers_section').empty();
 
-	for(var i = 0; i < numberOfChoices; i++){
-		var buildChoiceHTML = '<input class='answer' type='radio' name='option' value="' + i + '">' +
-		questions[currentQuestion].options[i] + "<br/>";
-		$('.answers').append(buildChoiceHTML);
-	}
+var totalChoices = questions[currentQuestion].options.length;
 
-	$('.count').text('Question ' + (currentQuestion + 1) + 'of' + totalQuestions);
-	$('.score').text('You have' + (totalCorrectAnswers) + 'of' + totalQuestions + 'correct.');
+for(var i = 0; i < totalChoices.length; i++) {
+	var buildOptionsHTML = '<input class="answer" type="radio" name="option" value="' + i + '">' + questions[currentQuestion].options[i] + '</br>';
+	$('.answers_section').append(buildOptionsHTML);
+}
+
+$('.count').text('Question ' + (currentQuestion + 1) + ' of ' + numberOfQuestions);
+$('.score').text('You have ' + (numberOfRightAnswers) + ' of ' + numberOfQuestions + ' correct.');
+
 }
 
 $(document).ready(function(){
 	$('.quiz_name').show();
 	$('.begin').show();
-	$('.button_start').show();
 	$('.question').hide();
-	$('.answers').hide();
-	$('.count').hide();
-	$('.score').hide();
-	$('.button_again').hide();
-	$('.image_container').hide();
+	$('.results').hide();
 
 	// start quiz //
 	$('.button_start').on('click', function(event){
 		event.preventDefault();
+	$('.begin').hide();
+	$('.results').hide();
+	$('.quiz_name').hide();
 	$('.question').show();
-	$('.answers').show();
-	$('.quiz_name').hide(); 
-	$('.introduction').hide(); 
-	$('.begin').hide(); 
-	$('.count').hide();
-	$('.score').hide(); 
-	$('.button_again').hide(); 
-	$('.image_container').show();
-	$('.button_start').hide();
+	$('.results').empty();
+	displayQuestion();
 	});
+
+	// show questions
+	$('.question').on('click', '.answer', function(){
+		var userAnswer = $('input[class="answer"]:checked').val();
+
+		var rightAnswer = questions[currentQuestion].choice;
+		console.log('userAnswer = ', userAnswer);
+		console.log('rightAnswer = ', rightAnswer);
+		if(userAnswer === rightAnswer) {
+			numberOfRightAnswers++;
+			console.log(numberOfRightAnswers);
+		}
+
+		if((currentQuestion + 1) === numberOfQuestions) {
+			$('.results').show();
+			$('.quiz_name').hide();
+			$('.quiz').hide();
+
+			$('.results').text('You got' + (numberOfRightAnswers) + ' of ' + numberOfQuestions + ' correct.');
+		}
+		else {
+			currentQuestion++;
+			displayQuestion();
+		}
+	});
+
+	$('.results').on('click', '.again', function(){
+		$('.quiz_name').show();
+		$('.begin').show();
+		$('.button_start').show();
+		$('.quiz').hide();
+		$('.results').hide();
+
+		currentQuestion = 0;
+		numberOfRightAnswers = 0;
+	})
+
 });
 
 
