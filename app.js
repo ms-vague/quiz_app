@@ -19,7 +19,7 @@ var questions = [
   },
     {	
 	question: "What's the name of Sarah's step-brother?",
-	options: ['Roger', 'Johnny', 'Felix', 'Mickey'],
+	options: ['Cora', 'Johnny', 'Felix', 'Mickey'],
 	choice: 2,
 	correctMessage: "Holy shite, that worked!"
   },
@@ -68,7 +68,7 @@ var numberOfRightAnswers = 0;
 // functions 
 
 function displayQuestion(){
-	console.log('hello');
+	//console.log('hello');
 	// update question text //
 	$('.question').text(questions[currentQuestion].question);
 	// delete pre-existing choices //
@@ -118,13 +118,16 @@ $(document).ready(function(){
 		console.log('rightAnswer = ', rightAnswer);
 		if (userAnswer === rightAnswer) {
 			numberOfRightAnswers++;
-			console.log(numberOfRightAnswers);
+			console.log('total right answers = ', numberOfRightAnswers);
 		}
 
+		// if quiz is finished, show results // 
 		if ((currentQuestion + 1) === numberOfQuestions) {
 			$('.results').show();
 			$('.begin').hide();
 			$('.quiz').hide();
+
+			$('.results').text((numberOfRightAnswers) + ' out of ' + numberOfQuestions + '. Welcome to the trip, man.');
 			
 		}
 		else {
@@ -140,7 +143,7 @@ $(document).ready(function(){
 
 		currentQuestion = 0;
 		numberOfRightAnswers = 0;
-	})
+	});
 });
 
 
