@@ -19,7 +19,7 @@ var questions = [
   },
     {	
 	question: "What's the name of Sarah's step-brother?",
-	options: ['Roger', 'Johnny', 'Felix', 'Mickey'],
+	options: ['Cora', 'Johnny', 'Felix', 'Mickey'],
 	choice: 2,
 	correctMessage: "Holy shite, that worked!"
   },
@@ -51,7 +51,7 @@ var questions = [
   	question: "Sarah, Cal, and Kira are collectively referred to as?",
 	options: ['The Fugitive Family', 'Hacker Fam', 'Oi! Fam', 'Lumberfamily'],
 	choice: 3,
-	correctMessage: 'Nice job, meathead.'
+	correctMessage: 'Good job, meathead.'
   	},
   {
   	question: "Sarah, who is Beth Childs?",
@@ -64,56 +64,77 @@ var questions = [
 var currentQuestion = 0;
 var numberOfQuestions = questions.length;
 var numberOfRightAnswers = 0;
-
+	//console.log(numberOfRightAnswers);
 // functions 
 
 function displayQuestion(){
+	//console.log('hello');
+	// update question text //
 	$('.question').text(questions[currentQuestion].question);
+	// delete pre-existing choices //
 	$('.choices').empty();
 
+	// total number of choices for current question //
 var totalChoices = questions[currentQuestion].options.length;
-
-for (var i = 0; i < totalChoices.length; i++) {
-	var buildOptionsHTML = '<input class="answer" type="radio"  name="option" value="' + i + '">' + questions[currentQuestion].options[i] + ' <br/> ';
+	
+	// loop thru all choices and append them to .choices div //
+for (var i = 0; i < totalChoices; i++) {
+	// loop choices and append them to .choices div //
+	var buildOptionsHTML = '<input class="answer" type="radio"  name="option" value="' + i + '">' + 
+	questions[currentQuestion].options[i] + ' <br/> ';
+	// append the row to choices container in HTML //
 	$('.choices').append(buildOptionsHTML);
 }
-
+	
+	// number of the current question //
 $('.count').text('Question ' + (currentQuestion + 1) + ' of ' + numberOfQuestions);
-$('.score').text('You have ' + (numberOfRightAnswers) + ' of ' + numberOfQuestions + ' correct.');
-
-}
+	
+	// how many answers are correct //
+$('.score').text((numberOfRightAnswers) + ' of ' + numberOfQuestions);
+}	
 
 $(document).ready(function(){
+	// hide quiz and results on load //
 	$('.begin').show();
 	$('.quiz').hide();
-	$('.results').hide();
+	$('.finished').hide();
 
 	// start quiz //
 	$('.button_start').on('click', function(){
-	$('.results').hide();
+		// show quiz section //
+	$('.finished').hide();
 	$('.begin').hide();
+	$('.quiz_name').hide();
 	$('.quiz').show();
-	$('.results').empty();
+	$('.results').empty(); 
 	displayQuestion();
 });
 
 	// show questions
 	$('.quiz').on('click', '.answer', function(){
-
-		var userAnswer = $('input[class=answer]:checked').val();
-
+		//console.log('hello');
+			// user input //
+		var userAnswer = $('input[class="answer"]:checked').val();
+			// get correct answer from questions array //
 		var rightAnswer = questions[currentQuestion].choice;
-		console.log('userAnswer = ', userAnswer);
-		console.log('rightAnswer = ', rightAnswer);
-		if(userAnswer === rightAnswer) {
+		//console.log('userAnswer = ', typeof userAnswer);
+		//console.log('rightAnswer = ', typeof rightAnswer);
+		// compare if userAnswers is same as rightAnswer //
+		if (+userAnswer === rightAnswer) {
+			// if answer is right, increment total number answers that are right //
+			//console.log('number of right answers = ', numberOfRightAnswers++);
 			numberOfRightAnswers++;
-			console.log(numberOfRightAnswers);
 		}
 
-		if((currentQuestion + 1) === numberOfQuestions) {
-			$('.results').show();
+		// if quiz is finished, show results // 
+		if ((currentQuestion + 1) === numberOfQuestions) {
+			$('.finished').show();
+			$('.quiz_name').show();
 			$('.begin').hide();
 			$('.quiz').hide();
+
+			$('.results').text((numberOfRightAnswers) + ' out of ' + numberOfQuestions + 
+			 '. Welcome to the trip, man.');
 			
 		}
 		else {
@@ -121,15 +142,15 @@ $(document).ready(function(){
 			displayQuestion();
 		}
 	});
-
-	$('.results').on('click', '.again', function(){
+		// load restart section //
+	$('.finished').on('click', '.again', function(){
 		$('.begin').show();
 		$('.quiz').hide();
-		$('.results').hide();
+		$('.finished').hide();
 
 		currentQuestion = 0;
 		numberOfRightAnswers = 0;
-	})
+	});
 });
 
 

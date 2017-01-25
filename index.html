@@ -1,60 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
+	<meta charset='UTF-8'>
 	<title> Orphan Black Quiz App</title>
-	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type= "text/css" href="main.css">
+
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css'>
+	<link rel='stylesheet' type= 'text/css' href='main.css'>
+	<link href="https://fonts.googleapis.com/css?family=Overpass+Mono:300" rel="stylesheet">
 </head>
 
 <body>
 	<main>
 		<header class='quiz_name'>
-			<h1>Orphan Black Quiz</h1>
+			<img src="images/ob_logo.png" class='image' alt="orphan black logo">
 		</header>
 
 		<section class='begin'>
-			<h2>Ever wonder how much Orphan Black trivia you have stored inside your brain?</h2>
+
+			<h2>Ever wonder how much Orphan Black trivia you have <br> stored inside your brain?</h2>
 			<h3>Take this quiz and find out.</h3>
 
 			<div class='button_start'>
-				<input type="submit" value="Follow the Leda">
+				<input type='submit' value='Follow the Leda'>
 			</div>	
 		</section>
 
 		<section class='quiz'>
-			<h3 class="question">Filler</h3>
+			<h3 class='question'></h3>
 
 			<div class='choices'>
-					<input class='answer' type='radio' value='0' name='option'> Filler
-					<br>
-					<input class='answer' type='radio' value='1' name='option'> Filler
-					<br>
-					<input class='answer' type='radio' value='2' name='option'> Filler
-					<br>
-					<input class='answer' type='radio' value='3' name='option'> Filler
-					<br>
 			</div>
 
-			<div class='count'>Question blah of blah</div>
-			<div class='score'>You have blah of blah correct</div>
+			<div class='count'></div>
+			<div class='score'></div>
 		</section>
 
-		<footer class='results'>
-
-			<p>where the progress bar will be</p>
-			<img class="progress_bar" src="" alt="">
-
-			<div class='again'>
-				<input type="submit" value="Play Again">
-			</div>
+		<footer class='finished'> 
+			<div class='results'></div> 
+				<div class='again'> 
+					<input type='submit' value='Play Again?'> 
+				</div> 
 		</footer>
 
 	</main>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
-	<script src="app.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js'></script>
+	<script src='app.js'></script>
 </body>
 </html>
