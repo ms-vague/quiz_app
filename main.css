@@ -1,12 +1,12 @@
 * {
 	box-sizing: border-box;
-	font-size: large;
-	font-weight: bold;
 }
 
 body {
 	background-color: #EAECEE;
 	font-family: 'Overpass Mono', monospace;
+	font-size: large;
+	font-weight: bold;
 }
 
 img {
@@ -67,4 +67,28 @@ input.answer {
 	text-align: center;
 	margin-top: 15px;
 	font-weight: bolder;
+}
+
+@media screen and (max-width: 300px) {
+
+  .quiz_name {
+   	padding:  3em 0;
+  }
+
+  .begin {
+  	padding:  3em 0;
+  }	
+
+  .quiz {
+  	padding:  3em 0;
+  }	
+
+  .finished {
+  	padding: 3em 0;
+  }
+
+  .image {
+  	padding: 3em 0;
+  }
+
 }
